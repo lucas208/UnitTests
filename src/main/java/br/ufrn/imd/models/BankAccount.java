@@ -1,7 +1,5 @@
 package br.ufrn.imd.models;
 
-import org.jetbrains.annotations.NotNull;
-
 public class BankAccount {
     private long accountNumber;
     private int agency;
