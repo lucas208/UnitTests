@@ -21,6 +21,6 @@ Funcionalidade: Operações em BankAccount
   Cenario: Transferencia em um BankAccount com saldo
     Dado um BankAccount com saldo de R$ 100,00
     E um BankAccount de destino com saldo de R$ 0,00
-    Quando tranferir R$ 50,00 para o BankAccount de destino
+    Quando transferir R$ 50,00 para o BankAccount de destino
     Entao o saldo do BankAccount deve ser R$ 50,00
     E o saldo do BankAccount de destino deve ser R$ 50,00

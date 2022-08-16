@@ -4,7 +4,7 @@ public class BankAccountTestFixture {
     private BankAccount bankAccount;
 
     protected BankAccountTestFixture() {
-        bankAccount = new BankAccount(123456, 123, 0);
+        bankAccount = new BankAccount(123456, 123, 100);
     }
 
     public BankAccount getBankAccount() {

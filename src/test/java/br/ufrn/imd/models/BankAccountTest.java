@@ -37,5 +37,43 @@ public class BankAccountTest {
     public void testDepositShouldNotBeZeroOrNegativeValue(double value){
         assertThrows(IllegalArgumentException.class, () -> bankAccount.deposit(value));
     }
+    
+    @Test
+    public void testWithdrawShouldChangeTheBalance(){
+    	fixture.getBankAccount().withdraw(50);
+        assertEquals(50, fixture.getBankAccount().getBalance());
+    }
+    
+    @Test
+    public void testTransferShouldChangeTheBalance(){
+    	fixture.getBankAccount().transfer(bankAccount, 50);
+        assertEquals(50, fixture.getBankAccount().getBalance());
+        assertEquals(50, bankAccount.getBalance());
+    }
+    
+    @ParameterizedTest
+    @ValueSource(ints = {0, -10, -5, -3, -15})
+    public void testWithdrawShouldNotBeZeroOrNegativeValue(double value){
+        assertThrows(IllegalArgumentException.class, () -> bankAccount.withdraw(value));
+    }
+    
+    @ParameterizedTest
+    @ValueSource(ints = {0, -10, -5, -3, -15})
+    public void testTransferShouldNotBeZeroOrNegativeValue(double value){
+        assertThrows(IllegalArgumentException.class, () -> fixture.getBankAccount().transfer(bankAccount, value));
+    }
+    
+    @Test
+    public void testWihtdrawShouldNotBeGreaterThanBalance(){
+        double value = bankAccount.getBalance() + 1;
+        assertThrows(ArithmeticException.class , () -> bankAccount.withdraw(value));
+    }
+
+    @Test
+    public void testTransferShouldNotBeGreaterThanBalance(){
+        double value = bankAccount.getBalance() + 1;
+        assertThrows(ArithmeticException.class, () -> bankAccount.transfer(fixture.getBankAccount(), value));
+    }
+    
 }
 
