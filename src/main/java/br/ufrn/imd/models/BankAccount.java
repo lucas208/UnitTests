@@ -37,15 +37,15 @@ public class BankAccount {
     }
 
     public void withdraw(double value){
-        //TODO.: se o valor for menor igual a zero, lançar uma exceção
-        //TODO.: se a conta não tiver saldo suficiente, lançar uma exceção
-        //TODO.: se a conta tiver saldo suficiente, debitar o valor do saldo
+        if(value <= 0) throw new IllegalArgumentException();
+        else if (balance < value) throw new ArithmeticException();
+        else {
+        	balance -= value;
+        }
     }
 
     public void transfer(BankAccount beneficiaryAccount, double value){
-        //TODO.: se o valor for menor igual a zero, lançar uma exceção
-        //TODO.: se a conta não tiver saldo suficiente, lançar uma exceção
-        //TODO.: se a conta tiver saldo suficiente, debitar o valor do saldo e realizar deposito
-        // na BankAccount beneficiaryAccount
+    	withdraw(value);
+    	beneficiaryAccount.deposit(value);
     }
 }
