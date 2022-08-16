@@ -31,30 +31,18 @@ public class BankAccountStepdefs {
         var saldo = bankAccount.getBalance();
         assertEquals(double1, saldo);
     }
-    
-    @Given("um BankAccount com saldo de R$ {double}")
-    public void um_bank_account_com_saldo_de_r1$(Double double1) {
-        //TODO
-        bankAccount = new BankAccount(123456, 123, double1);
-    }
-    
+
     @When("retirar R$ {double}")
     public void retirar_r$(Double double1) {
         //TODO
         bankAccount.withdraw(double1);
     }
     
-    @Then("o saldo do BankAccount deve ser R$ {double}")
+    @Then("o saldo do BankAccount deverá ser R$ {double}")
     public void o_saldo_deve_ser_r$1(Double double1) {
         //TODO
         var saldo = bankAccount.getBalance();
         assertEquals(double1, saldo);
-    }
-    
-    @Given("um BankAccount com saldo de R$ {double}")
-    public void um_bank_account_com_saldo_de_r$2(Double double1) {
-        //TODO
-        bankAccount = new BankAccount(123456, 123, double1);
     }
     
     @And("um BankAccount de destino com saldo de R$ {double}")
@@ -69,7 +57,7 @@ public class BankAccountStepdefs {
         bankAccount.transfer(bankAccountDestino, double1);
     }
     
-    @Then("o saldo do BankAccount deve ser R$ {double}")
+    @Then("o saldo do BankAccount será R$ {double}")
     public void o_saldo_deve_ser_r$2(Double double1) {
         //TODO
         var saldo = bankAccount.getBalance();

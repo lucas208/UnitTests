@@ -65,14 +65,12 @@ public class BankAccountTest {
     
     @Test
     public void testWihtdrawShouldNotBeGreaterThanBalance(){
-        double value = bankAccount.getBalance() + 1;
-        assertThrows(ArithmeticException.class , () -> bankAccount.withdraw(value));
+        assertThrows(ArithmeticException.class , () -> fixture.getBankAccount().withdraw(101));
     }
 
     @Test
     public void testTransferShouldNotBeGreaterThanBalance(){
-        double value = bankAccount.getBalance() + 1;
-        assertThrows(ArithmeticException.class, () -> bankAccount.transfer(fixture.getBankAccount(), value));
+        assertThrows(ArithmeticException.class, () -> fixture.getBankAccount().transfer(bankAccount, 101));
     }
     
 }
